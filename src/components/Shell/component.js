@@ -7,10 +7,9 @@ import {
   blue, deepOrange
 } from '@material-ui/core/colors';
 
-
 function Main(props) {
-  const {darkMode} = props
 
+  const {darkMode} = props
   const theme = useMemo(
     () => createMuiTheme({
       isDark: darkMode,
@@ -24,12 +23,15 @@ function Main(props) {
     [darkMode],
   );
 
-  return <div> 
-    <MuiThemeProvider theme={theme}>
+  return <MuiThemeProvider theme={theme}>
+    <div style={{backgroundColor: theme.palette.primary.main}}>
       <HeaderBar />
-      <RoutesProvider />
-    </MuiThemeProvider>
-  </div>
+
+      <div style={{borderRadius: '5vh'}}>
+        <RoutesProvider />
+      </div>
+    </div>
+  </MuiThemeProvider>
 }
 
 export default Main;

@@ -11,7 +11,6 @@ function AppRoute(props) {
 
     // Management of view and path missings?
     return <Route path={path} component={RouteView}> 
-        <RouteView />
     </Route>
 }
 

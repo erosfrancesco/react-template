@@ -5,7 +5,8 @@ export default makeStyles((theme) => ({
     display: 'grid',
     justifyContent: 'center',
     height: 'calc(100vh - 62px)',
-    background: theme.palette.inverted
+    background: theme.palette.inverted,
+    borderRadius: '1.3vh 1.3vh 0 0'
   },
   content: {
     flexGrow: 1,

@@ -25,7 +25,7 @@ export default function ToggleableSidenav(props) {
         <SideNav style={wrapper} expanded={expanded} onToggle={setExpanded}>
             <Toggle style={wrapper} />
             
-            <Paper color="secondary" elevation={1}>
+            <Paper elevation={1}>
                 <Nav defaultSelected="home">
                     <NavItem eventKey="home">
                         <NavIcon>
