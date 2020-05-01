@@ -17,7 +17,7 @@ function Main(props) {
         type: darkMode ? 'dark' : 'light',
         primary: darkMode ? deepOrange : blue,
         background: darkMode ? 'white' : 'black',
-        inverted: darkMode ? 'black' : 'white'
+        inverted: darkMode ? '#303030' : 'white'
       }
     }),
     [darkMode],

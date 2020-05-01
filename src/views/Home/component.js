@@ -4,7 +4,7 @@ import { Paper, Typography } from '@material-ui/core';
 import useStyle from './style'
 
 
-function Home(props) {  
+export default function Home(props) {  
   const classes = useStyle()
   
   return <Paper className={classes.wrapper}>
@@ -13,5 +13,3 @@ function Home(props) {
     </Typography>
   </Paper>
 }
-
-export default Home;
