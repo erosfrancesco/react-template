@@ -6,10 +6,4 @@ function mapStateToProps(state, props) {
   };
 }
 
-function mapMethodsToProps(dispatch, props) {
-  return {
-    login: (username, password) => console.log("Loggin with ", username, password)
-  };
-}
-
-export default connect(mapStateToProps, mapMethodsToProps)(Component)
+export default connect(mapStateToProps)(Component)

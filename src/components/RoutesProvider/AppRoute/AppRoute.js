@@ -1,17 +1,32 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
+import UserContext from '../../UserContext';
 
 function AppRoute(props) {
-    const {view: RouteView, path} = props
+    const {view: RouteView, path, isProtected = false} = props
     
-    if (!RouteView) {
-        return null
+    if (!isProtected) {
+        return <Route path={path} component={RouteView}> 
+        </Route>
     }
 
-    // Management of view and path missings?
-    return <Route path={path} component={RouteView}> 
-    </Route>
+    return <UserContext.Consumer>
+        {user => {
+
+            if (!user) {
+                return null
+            }
+
+            if (user.token) {
+                return <Route path={path} component={RouteView} />
+            }
+
+            return <Redirect to='login' />
+        }}
+       
+    </UserContext.Consumer> 
+    
 }
 
 export default AppRoute;

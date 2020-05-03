@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography } from '@material-ui/core';
+import { Paper, Typography, Button } from '@material-ui/core';
 
 import useStyle from './style'
 
@@ -11,5 +11,7 @@ export default function Home(props) {
     <Typography className={classes.content} variant="h2">
       Hello home
     </Typography>
+
+    <Button onClick={props.invalidate}>Invalidate user</Button>
   </Paper>
 }

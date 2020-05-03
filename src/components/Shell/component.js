@@ -2,14 +2,16 @@ import React, { useMemo } from 'react';
 import RoutesProvider from '../RoutesProvider';
 import HeaderBar from '../shared/TopBar'
 
+import UserContext from '../UserContext';
+import useStyle from './style'
+
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { 
-  blue, deepOrange
-} from '@material-ui/core/colors';
+import { blue, deepOrange } from '@material-ui/core/colors';
 
-function Main(props) {
+export default function Shell(props) {
 
-  const {darkMode} = props
+  const {darkMode, user} = props
+  const classes = useStyle()
   const theme = useMemo(
     () => createMuiTheme({
       isDark: darkMode,
@@ -24,14 +26,14 @@ function Main(props) {
   );
 
   return <MuiThemeProvider theme={theme}>
-    <div style={{backgroundColor: theme.palette.primary.main}}>
-      <HeaderBar />
+    <UserContext.Provider value={user}>
+      <div className={classes.colored}>
+        <HeaderBar />
 
-      <div style={{borderRadius: '5vh'}}>
-        <RoutesProvider />
+        <div className={classes.rounded}>
+          <RoutesProvider />
+        </div>
       </div>
-    </div>
+    </UserContext.Provider>
   </MuiThemeProvider>
 }
-
-export default Main;

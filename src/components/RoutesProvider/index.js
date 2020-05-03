@@ -4,11 +4,9 @@ import Component from './RoutesProvider'
 
 function mapStateToProps(state, props) {
     return {
-        // routes: state.routes
+        routesMap: state.routesMap
     }
 }
 
-
-const RoutesProvider = connect(mapStateToProps)(Component)
-export default RoutesProvider
+export default connect(mapStateToProps)(Component)
   

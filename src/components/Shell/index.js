@@ -1,14 +1,9 @@
 import Component from './component'
 import {connect} from 'react-redux'
 
-
-// APP LOGIC
 function mapStateToProps(state, props) {
-  return { 
-    darkMode: state.darkMode
-  };
+  const { darkMode, user } = state
+  return { darkMode, user };
 }
 
-
-// EXPORT
 export default connect(mapStateToProps)(Component);

@@ -1,25 +1,17 @@
 import Component from './component'
 import {connect} from 'react-redux'
 
+import {saveUser} from '../../actions'
 
-// APP LOGIC
 function mapStateToProps(state, props) {
   return { 
-  };
+  }
 }
 
 function mapMethodsToProps(dispatch, props) {
   return { 
-    login: (e) => {
-      try {
-        console.log(e)
-        alert("Logged in");
-      } catch (e) {
-        alert(e.message);
-      }
-    }
-  };
+    login: ({password, username}) => dispatch(saveUser({password, username}))
+  }
 }
 
-// EXPORT
 export default connect(mapStateToProps, mapMethodsToProps)(Component);
