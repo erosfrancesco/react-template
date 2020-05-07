@@ -7,13 +7,15 @@ export default makeStyles((theme) => ({
   },
   header: {
     borderRadius: '0',
-    margin: 'auto',
-    flexGrow: 1,
-    height: '30px',
-    width: '-webkit-fill-available'
+    paddingTop: '8%',
+    background: theme.palette.primary.main
+  },
+  contentWrapper: {
+    background: theme.palette.inverted
   },
   content: {
-    margin: '17px'
+    margin: 'auto',
+    padding: '17px'
   },
   button: {
     width: '-webkit-fill-available'

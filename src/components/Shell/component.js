@@ -8,6 +8,7 @@ import useStyle from './style'
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { blue, deepOrange } from '@material-ui/core/colors';
 
+
 export default function Shell(props) {
 
   const {darkMode, user} = props
@@ -18,6 +19,7 @@ export default function Shell(props) {
       palette: {
         type: darkMode ? 'dark' : 'light',
         primary: darkMode ? deepOrange : blue,
+        roundedBackground: darkMode ? deepOrange[500] : blue[500],
         background: darkMode ? 'white' : 'black',
         inverted: darkMode ? '#303030' : 'white'
       }
@@ -25,15 +27,15 @@ export default function Shell(props) {
     [darkMode],
   );
 
-  return <MuiThemeProvider theme={theme}>
-    <UserContext.Provider value={user}>
-      <div className={classes.colored}>
+  return <UserContext.Provider value={user}>
+    <MuiThemeProvider theme={theme}>
+      <div style={{background: theme.palette.roundedBackground}}>
         <HeaderBar />
 
         <div className={classes.rounded}>
           <RoutesProvider />
         </div>
       </div>
-    </UserContext.Provider>
-  </MuiThemeProvider>
+    </MuiThemeProvider>
+  </UserContext.Provider>
 }

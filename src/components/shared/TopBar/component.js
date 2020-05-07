@@ -7,7 +7,7 @@ import useStyles from './style'
 // import BurgerMenu from './BurgerButton'
 import SearchItem from './SearchTopBar'
 import DarkModeToggle from './DarkModeToggle'
-
+import UserContext from '../../UserContext'
 
 export default function HeaderBar() {
   const classes = useStyles();
@@ -16,7 +16,18 @@ export default function HeaderBar() {
     <Toolbar className={classes.painted}>
       {/* <BurgerMenu /> */}
       <Typography className={classes.title} variant="h6" noWrap>
-        React Boilerplate
+        
+        <UserContext.Consumer>
+          {
+            user => {
+              if (user && user.username) {
+                return 'Hello, ' + user.username
+              } 
+              return 'React Boilerplate'
+            }
+          }
+        </UserContext.Consumer>
+        
       </Typography>
       <DarkModeToggle />
       <SearchItem />

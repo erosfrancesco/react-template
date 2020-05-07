@@ -7,27 +7,23 @@ import Login from '../../views/Login';
 import NotFound from '../../views/NotFound';
 
 export default function RoutesProvider(props) {
-    const {routesMap} = props;
+    // const {routesMap} = props;
 
-    console.log(routesMap)
+    // const Routes = routesMap.map(route => <AppRoute key={route.path} view={route.view} path={route.path} exact isProtected={route.isProtected} />
+    // )
+    const Routes = 
+    <Switch>
+        <AppRoute view={Home} path="/" exact isProtected /> 
+        <AppRoute view={Login} path="/login" exact /> 
+        <AppRoute view={NotFound} path="*" />
+    </Switch>
 
     return <BrowserRouter>
-        <Switch>
-            <AppRoute view={Home} path="/" exact isProtected /> 
-            <AppRoute view={Login} path="/login" exact /> 
-            <AppRoute view={NotFound} path="*" />
-        </Switch>
+            { Routes }
     </BrowserRouter>    
 }
 
 /*
-    {
-        routesMap.map(({view, isProtected = false, path}) => {
-            console.log(view, path)
-            return <AppRoute key={path} view={view} path={path} exact isProtected={isProtected} />
-        })
-    }
-
     <AppRoute view={Home} path="/" exact isProtected /> 
     <AppRoute view={Login} path="/login" exact /> 
     <AppRoute view={NotFound} path="*" />

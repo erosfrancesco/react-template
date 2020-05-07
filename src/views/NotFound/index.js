@@ -1,4 +1,4 @@
-import Component from './NotFound'
+import Component from './component'
 import {connect} from 'react-redux'
 
 function mapStateToProps(state, props) {
@@ -6,5 +6,4 @@ function mapStateToProps(state, props) {
   };
 }
 
-const NotFound = connect(mapStateToProps)(Component);
-export default NotFound;
+export default connect(mapStateToProps)(Component);

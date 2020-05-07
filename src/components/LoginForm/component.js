@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Button, Paper} from '@material-ui/core';
+import {Button, Paper, Card} from '@material-ui/core';
 
 import useStyle from './style'
 import PasswordField from './PasswordField'
@@ -16,21 +16,22 @@ export default function LoginForm(props) {
     props.login({password, username})
   }
 
-  return <Paper variant="outlined" className={classes.wrapper}>
-    <Paper className={classes.inner} elevation={0}>
-      <form onSubmit={submit} className={classes.content}>
-        <UsernameField value={username} setValue={setUsername}className={classes.content} />
-        <br/>
-        <PasswordField value={password} setValue={setPassword} className={classes.content} />
-        <br/>
+  return <Card className={classes.wrapper}>
+    <Paper elevation={0} variant="outlined" className={classes.header}>
+      <Paper elevation={0} className={classes.contentWrapper}>
+        <form onSubmit={submit} className={classes.content}>
+          <UsernameField value={username} setValue={setUsername}className={classes.content} />
+          <br/>
+          <PasswordField value={password} setValue={setPassword} className={classes.content} />
+          <br/>
 
-        <Button className={classes.button} 
-                color="primary" 
-                type="submit"
-                variant="outlined"
-        > login </Button>
-      </form>
+          <Button className={classes.button} 
+                  color="primary" 
+                  type="submit"
+                  variant="outlined"
+          > Log In </Button>
+        </form>
+      </Paper>
     </Paper>
-
-  </Paper>
+  </Card>
 }
