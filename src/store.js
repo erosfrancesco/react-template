@@ -7,6 +7,10 @@ import {storeConf} from './constants'
 import logic from './logic'
 import reducers from './reducers'
 
+// FAKE BACKEND
+import fakeBackend from './fake-backend'
+fakeBackend()
+
 // LOGIC MIDDLEWARE
 const logicMiddleware = createLogicMiddleware(logic)
 const middleware = applyMiddleware(logicMiddleware)
@@ -19,5 +23,6 @@ const rootReducer = persistReducer(persistConfig, reducers)
 // STORE
 const store = createStore(rootReducer, middleware)
 const persistor = persistStore(store)
+
 
 export { store, persistor }

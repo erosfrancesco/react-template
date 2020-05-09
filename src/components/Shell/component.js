@@ -7,6 +7,7 @@ import useStyle from './style'
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { blue, deepOrange } from '@material-ui/core/colors';
+import Sidebar from '../shared/SideNav';
 
 
 export default function Shell(props) {
@@ -31,6 +32,8 @@ export default function Shell(props) {
     <MuiThemeProvider theme={theme}>
       <div style={{background: theme.palette.roundedBackground}}>
         <HeaderBar />
+
+        <Sidebar />
 
         <div className={classes.rounded}>
           <RoutesProvider />
