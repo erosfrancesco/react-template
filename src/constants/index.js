@@ -5,8 +5,9 @@ export const themeActions = {
 
 // user actions
 export const userActions = {
-    save: 'SAVE_USER',
-    invalidate: 'INVALIDATE_CURRENT_USER'
+    save: 'USER_SAVE_TOKEN',
+    invalidate: 'INVALIDATE_CURRENT_USER',
+    loginRequest: 'USER_SEND_LOGIN_REQUEST'
 }
 
 // store configuration

@@ -44,6 +44,13 @@ export default (state = initialState, action) => {
         }
       }
 
+      // LOGIN
+      case userActions.loginRequest: {
+        return {
+          ...state
+        }
+      }
+
       // DEFAULT
       default: {
         return state;

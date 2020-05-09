@@ -34,3 +34,11 @@ export function getUsers(opts, users, resolve, reject) {
         reject('Unauthorised');
     }
 }
+
+export function loginSuccess(opts, users, resolve, reject) {
+    resolve({ ok: true, json: () => Promise.resolve(users[0])});
+}
+
+export function loginError(opts, users, resolve, reject) {
+    reject('User not found');
+}

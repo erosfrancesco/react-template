@@ -1,6 +1,6 @@
 import Component from './component'
 import {connect} from 'react-redux'
-import {invalidateUser} from '../../actions'
+import {invalidateUser, requestLogin} from '../../actions'
 
 function mapStateToProps(state, props) {
   return { 
@@ -9,6 +9,7 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
   return {
+    requestLogin: (payload) => dispatch(requestLogin(payload)),
     invalidate: () => dispatch(invalidateUser())
   }
 }

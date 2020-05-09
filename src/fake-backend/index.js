@@ -1,4 +1,4 @@
-import {authenticate, getUsers} from './fake-compass'
+import {authenticate, getUsers, loginSuccess, loginError} from './fake-compass'
 
 export default function configureFakeBackend() {
     const users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
@@ -17,6 +17,13 @@ export default function configureFakeBackend() {
                 // get users
                 if (url.endsWith('/users') && opts.method === 'GET') {
                     getUsers(opts, users, resolve, reject)
+                    return;
+                }
+
+                // login
+                if (url.endsWith('/users/login') && opts.method === 'POST') {
+                    loginSuccess(opts, users, resolve, reject)
+                    // loginError(opts, users, resolve, reject)
                     return;
                 }
 
