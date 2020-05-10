@@ -9,3 +9,4 @@ export const invalidateUser = () => ({ type: userActions.invalidate })
 
 // LOGIN
 export const requestLogin = payload => ({ type: userActions.loginRequest, payload })
+export const loginFailed = payload => ({ type: userActions.loginFailed, payload })

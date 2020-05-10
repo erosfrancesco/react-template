@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  Paper
+  Paper, Button
 } from '@material-ui/core';
 
 import useStyle from './style'
@@ -19,6 +19,7 @@ export default function Login(props) {
                 return <div>
                   <h4>You're logged</h4>
                   <GoHome />
+                  <Button onClick={props.invalidate}>Log out</Button>
                 </div>
               } 
 

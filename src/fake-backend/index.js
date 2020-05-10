@@ -1,7 +1,12 @@
 import {authenticate, getUsers, loginSuccess, loginError} from './fake-compass'
 
 export default function configureFakeBackend() {
-    const users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+    const users = [{ 
+        id: 1, 
+        username: 'ciccio', password: 'franco', 
+        firstName: 'FooBar', lastName: 'User' 
+    }];
+
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
@@ -22,8 +27,8 @@ export default function configureFakeBackend() {
 
                 // login
                 if (url.endsWith('/users/login') && opts.method === 'POST') {
-                    loginSuccess(opts, users, resolve, reject)
-                    // loginError(opts, users, resolve, reject)
+                    // loginSuccess(opts, users, resolve, reject)
+                    loginError(opts, users, resolve, reject)
                     return;
                 }
 

@@ -1,7 +1,7 @@
 import Component from './component'
 import {connect} from 'react-redux'
 
-import {saveUser} from '../../actions'
+import {requestLogin} from '../../actions'
 
 function mapStateToProps(state, props) {
   return { 
@@ -10,7 +10,7 @@ function mapStateToProps(state, props) {
 
 function mapMethodsToProps(dispatch, props) {
   return { 
-    login: ({password, username}) => dispatch(saveUser({password, username}))
+    login: user => dispatch(requestLogin(user))
   }
 }
 

@@ -1,13 +1,6 @@
 import {createLogic} from 'redux-logic'
 import {userActions} from '../constants'
-import {saveUser} from '../actions'
-// const userLogic = createLogic({
-//     type: userActions.save, 
-//     process({getState, action}, dispatch, done) {
-//         // Login
-//         done();
-//     }
-// });
+import {saveUser, loginFailed} from '../actions'
 
 const sendLogin = createLogic({
     type: userActions.loginRequest, 
@@ -19,22 +12,20 @@ const sendLogin = createLogic({
         const method = 'POST'
         const body = {username, password}
         window.fetch(loginUrl, {method, body})
-        .then(response => {
-            response.json().then(user => {
-                console.log(user)
-                // dispatch save user
-                dispatch(saveUser(user))
-                done();
-            })
-        })
+        .then(response => response.json().then(user => {
+            // save user
+            const {username, password, token} = user
+            dispatch(saveUser({username, password, token}))
+            done();
+        }))
         .catch(err => {
-            console.error(err)
+            // compute error cases
+            dispatch(loginFailed(err))
             done()
         })
     }
 });
 
 export default [
-//    userLogic, 
     sendLogin
 ]

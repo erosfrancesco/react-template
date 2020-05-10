@@ -7,7 +7,8 @@ export const themeActions = {
 export const userActions = {
     save: 'USER_SAVE_TOKEN',
     invalidate: 'INVALIDATE_CURRENT_USER',
-    loginRequest: 'USER_SEND_LOGIN_REQUEST'
+    loginRequest: 'USER_SEND_LOGIN_REQUEST',
+    loginFailed: 'LOGIN_REQUEST_FAILED'
 }
 
 // store configuration

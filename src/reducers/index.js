@@ -6,6 +6,7 @@ import { themeActions, userActions } from '../constants'
 
 const initialState = {
   darkMode: false,
+  lastLoginError: null
   // routesMap: [
   //   {path: '/', view: Home, isProtected: true}, 
   //   {path: '/login', view: Login}, 
@@ -48,6 +49,14 @@ export default (state = initialState, action) => {
       case userActions.loginRequest: {
         return {
           ...state
+        }
+      }
+
+      case userActions.loginFailed: {
+        const lastLoginError = action.payload
+        return {
+          ...state,
+          lastLoginError
         }
       }
 
