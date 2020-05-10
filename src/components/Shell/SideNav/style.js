@@ -1,12 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
-  wrapper: {
+export default makeStyles(theme => ({
+  content: {
+    zIndex: 999,
+    position: 'absolute',
+    
     maxWidth: '200px',
-    // background: theme.palette.background,
-    // color: theme.palette.primary.main,
-    border: '1px solid rgba(0, 0, 0, 0.1)',
-    paddingLeft: 18,
-    fontSize: '0.8rem'
+    width: '20vw',
   }
 }));

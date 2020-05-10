@@ -1,14 +1,14 @@
 import React from 'react'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import {
+  List, ListItem, ListItemText
+} from '@material-ui/core'
 
 import useStyle from './style'
 
 export default function Sidebar() {
   const classes = useStyle()
 
-  return <List disablePadding dense className={classes.wrapper}>
+  return <List disablePadding dense className={classes.content}>
     <ListItem button>
       <ListItemText>Home</ListItemText>
     </ListItem>
