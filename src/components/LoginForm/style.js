@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
     background: theme.palette.primary.main
   },
   contentWrapper: {
-    background: theme.palette.inverted
+    background: theme.palette.secondaryBackground
   },
   content: {
     margin: 'auto',

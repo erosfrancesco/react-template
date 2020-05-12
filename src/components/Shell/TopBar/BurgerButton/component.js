@@ -4,10 +4,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import useStyles from './style'
 
 
-export default function BurgerMenu() {
+export default function BurgerMenu(props) {
   const classes = useStyles();
 
-  return <IconButton edge="start" className={classes.burger} aria-label="open drawer">
+  return <IconButton edge="start" className={classes.burger} aria-label="open drawer" onClick={() => props.toggle()}>
     <MenuIcon />
   </IconButton>
 }

@@ -15,9 +15,9 @@ export default function LoginForm(props) {
   
   const submit = e => {
     e.preventDefault();
-    setSubmitted(true)
     const user = {username, password}
     props.login(user)
+    setSubmitted(true)
     setPassword('')
   }
 

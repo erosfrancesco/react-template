@@ -36,7 +36,13 @@ export function getUsers(opts, users, resolve, reject) {
 }
 
 export function loginSuccess(opts, users, resolve, reject) {
-    resolve({ ok: true, json: () => Promise.resolve(users[0])});
+    resolve({ ok: true, json: () => {
+        const user = users[0]
+        user.token = 'djvbeqwioubvfpinkovlfc'
+        // console.log("sending", user)
+        return user
+        // Promise.resolve(user)
+    }});
 }
 
 export function loginError(opts, users, resolve, reject) {

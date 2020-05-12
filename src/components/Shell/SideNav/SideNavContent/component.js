@@ -8,12 +8,15 @@ import useStyle from './style'
 export default function Sidebar() {
   const classes = useStyle()
 
-  return <List disablePadding dense className={classes.content}>
-    <ListItem button>
-      <ListItemText>Home</ListItemText>
-    </ListItem>
-    <ListItem button>
-      <ListItemText>Login</ListItemText>
-    </ListItem>
-  </List>
+  return <div>
+    Hello world
+  </div>
+  // <List disablePadding dense className={classes.content}>
+  //     <ListItem button>
+  //       <ListItemText>Home</ListItemText>
+  //     </ListItem>
+  //     <ListItem button>
+  //       <ListItemText>Login</ListItemText>
+  //     </ListItem>
+  // </List>
 }

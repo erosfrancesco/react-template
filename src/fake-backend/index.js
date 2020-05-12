@@ -27,8 +27,8 @@ export default function configureFakeBackend() {
 
                 // login
                 if (url.endsWith('/users/login') && opts.method === 'POST') {
-                    // loginSuccess(opts, users, resolve, reject)
-                    loginError(opts, users, resolve, reject)
+                    loginSuccess(opts, users, resolve, reject)
+                    // loginError(opts, users, resolve, reject)
                     return;
                 }
 

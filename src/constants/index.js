@@ -1,6 +1,9 @@
 // theme actions
-export const themeActions = {
-    toggleMode: 'TOGGLE_MODE'
+export const shellActions = {
+    toggleMode: 'TOGGLE_DARK_MODE',
+    closeSidenav: 'CLOSE_SIDE_NAV',
+    openSidenav: 'OPEN_SIDE_NAV',
+    toggleSidenav: 'TOGGLE_SIDE_NAV'
 }
 
 // user actions

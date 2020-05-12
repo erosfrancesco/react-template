@@ -6,6 +6,11 @@ export default makeStyles(theme => ({
     position: 'absolute',
     
     maxWidth: '200px',
-    width: '20vw',
+    height: '100vh',
+    
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    background: theme.palette.primary[700]
   }
 }));

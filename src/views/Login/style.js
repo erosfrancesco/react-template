@@ -1,12 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
+export default makeStyles(theme => ({
   content: {
-    background: theme.palette.inverted,
-    margin: 'auto'
-  },
-
-  wrapper: {
     display: 'grid',
     justifyContent: 'center',
     height: 'calc(100vh - 62px)',

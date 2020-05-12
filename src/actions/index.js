@@ -1,7 +1,10 @@
-import {themeActions, userActions} from '../constants'
+import {shellActions, userActions} from '../constants'
 
-// THEME
-export const toggleMode = () => ({ type: themeActions.toggleMode })
+// SHELL
+export const toggleMode = () => ({ type: shellActions.toggleMode })
+export const closeSidenav = () => ({ type: shellActions.closeSidenav })
+export const openSidenav = () => ({ type: shellActions.openSidenav })
+export const toggleSidenav = () => ({ type: shellActions.toggleSidenav })
 
 // USER
 export const saveUser = payload => ({ type: userActions.save, payload })

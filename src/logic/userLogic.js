@@ -12,12 +12,14 @@ const sendLogin = createLogic({
         const method = 'POST'
         const body = {username, password}
         window.fetch(loginUrl, {method, body})
-        .then(response => response.json().then(user => {
+        .then(response => {
+            const user = response.json()
+            
             // save user
             const {username, password, token} = user
             dispatch(saveUser({username, password, token}))
             done();
-        }))
+        })
         .catch(err => {
             // compute error cases
             dispatch(loginFailed(err))

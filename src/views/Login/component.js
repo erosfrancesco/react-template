@@ -11,7 +11,7 @@ import GoHome from '../../components/GoHome'
 export default function Login(props) {  
   const classes = useStyle()
   
-  return <Paper className={classes.wrapper}>
+  return <Paper className={classes.content}>
     <UserContext.Consumer>
           {
             user => {
