@@ -1,4 +1,5 @@
 import {createLogic} from 'redux-logic'
+import axios from 'axios'
 import {userActions} from '../constants'
 import {saveUser, loginFailed} from '../actions'
 
@@ -8,12 +9,11 @@ const sendLogin = createLogic({
         // Login
         const {username, password} = action.payload
 
-        const loginUrl = 'https://localhost:3000/users/login'
-        const method = 'POST'
+        const loginUrl = '/users/login'
         const body = {username, password}
-        window.fetch(loginUrl, {method, body})
+        axios.post(loginUrl, body)
         .then(response => {
-            const user = response.json()
+            const {user} = response.data
             
             // save user
             const {username, password, token} = user

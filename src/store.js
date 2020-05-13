@@ -8,8 +8,7 @@ import logic from './logic'
 import reducers from './reducers'
 
 // FAKE BACKEND
-import fakeBackend from './fake-backend'
-fakeBackend()
+import './fake-backend'
 
 // LOGIC MIDDLEWARE
 const logicMiddleware = createLogicMiddleware(logic)
