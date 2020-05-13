@@ -5,11 +5,9 @@ import {Button, Paper, Card} from '@material-ui/core';
 import useStyle from './style'
 import PasswordField from './PasswordField'
 import UsernameField from './UsernameField'
-import LoginError from './LoginError'
 
 export default function LoginForm(props) { 
   const classes = useStyle()
-  const [submitted, setSubmitted] = useState(false) 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   
@@ -17,14 +15,12 @@ export default function LoginForm(props) {
     e.preventDefault();
     const user = {username, password}
     props.login(user)
-    setSubmitted(true)
     setPassword('')
   }
 
   return <Card className={classes.wrapper}>
     <Paper elevation={0} variant="outlined" className={classes.header}>
       <Paper elevation={0} className={classes.contentWrapper}>
-        <LoginError submitted={submitted} />
         <form onSubmit={submit} className={classes.content}>
           <UsernameField value={username} setValue={setUsername}className={classes.content} />
           <br/>

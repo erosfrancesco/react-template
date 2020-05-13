@@ -7,6 +7,7 @@ import {storeConf} from './constants'
 import logic from './logic'
 import reducers from './reducers'
 
+
 // FAKE BACKEND
 import './fake-backend'
 
@@ -16,12 +17,11 @@ const middleware = applyMiddleware(logicMiddleware)
 
 // PERSIST
 const key = storeConf.persistorKey
-const persistConfig = {key, storage}
-const rootReducer = persistReducer(persistConfig, reducers)
+const persistConfig = {key, storage, whitelist: ['user', 'shell']}
+const rootReducer = persistReducer(persistConfig, reducers);
 
 // STORE
 const store = createStore(rootReducer, middleware)
 const persistor = persistStore(store)
-
 
 export { store, persistor }

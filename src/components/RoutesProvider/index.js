@@ -4,7 +4,6 @@ import Component from './RoutesProvider'
 
 function mapStateToProps(state, props) {
     return {
-        routesMap: state.routesMap
     }
 }
 

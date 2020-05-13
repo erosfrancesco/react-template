@@ -1,12 +1,12 @@
 import React from 'react'
-import {
-  List, ListItem, ListItemText
-} from '@material-ui/core'
+// import {
+//   List, ListItem, ListItemText
+// } from '@material-ui/core'
 
-import useStyle from './style'
+// import useStyle from './style'
 
-export default function Sidebar() {
-  const classes = useStyle()
+export default function Sidebar(props) {
+  // const classes = useStyle()
 
   return <div>
     Hello world

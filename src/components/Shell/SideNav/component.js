@@ -1,7 +1,7 @@
 import React from 'react'
 import SideNavContent from './SideNavContent'
 
-import useStyle from './style'
+// import useStyle from './style'
 
 
 export default function SideNav(props) {

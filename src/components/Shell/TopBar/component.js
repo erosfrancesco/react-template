@@ -20,8 +20,8 @@ export default function HeaderBar() {
         <UserContext.Consumer>
           {
             user => {
-              if (user && user.username) {
-                return 'Hello, ' + user.username
+              if (user.user && user.user.username) {
+                return 'Hello, ' + user.user.username
               } 
               return 'React Boilerplate'
             }

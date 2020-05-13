@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {closeSidenav, openSidenav, toggleSidenav} from '../../../actions'
 
 function mapStateToProps(state, props) {
+  const {sidenavOpen: isOpen} = state.shell
   return {
-    isOpen: state.sidenavOpen,
+    isOpen
   };
 }
 

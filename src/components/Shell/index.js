@@ -2,8 +2,14 @@ import Component from './component'
 import {connect} from 'react-redux'
 
 function mapStateToProps(state, props) {
-  const { darkMode, user, sidenavOpen } = state
-  return { darkMode, user, sidenavOpen };
+  const {shell, user} = state
+  const {darkMode, sidenavOpen} = shell
+
+  return { 
+    darkMode, 
+    sidenavOpen,
+    user
+  };
 }
 
 export default connect(mapStateToProps)(Component);
