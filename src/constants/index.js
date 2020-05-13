@@ -14,6 +14,11 @@ export const userActions = {
     loginFailed: 'LOGIN_REQUEST_FAILED'
 }
 
+// Protected actions
+export const protectedActions = {
+    doIt: 'A_PROTECTED_ACTION'
+}
+
 // store configuration
 export const storeConf = {
     persistorKey: 'PERSISTOR-STORAGE-ROOT'
