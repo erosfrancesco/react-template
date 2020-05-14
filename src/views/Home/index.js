@@ -1,6 +1,6 @@
 import Component from './component'
 import {connect} from 'react-redux'
-import {invalidateUser} from '../../actions'
+import {invalidateUser, protectedTest} from '../../actions'
 
 function mapStateToProps(state, props) {
   return { 
@@ -9,7 +9,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch, props) {
   return {
-    invalidate: () => dispatch(invalidateUser())
+    invalidate: () => dispatch(invalidateUser()),
+    fetchData: () => dispatch(protectedTest())
   }
 }
 

@@ -1,3 +1,4 @@
 import userLogic from './userLogic'
+import fooFetch from './fooFetch'
 
-export default [...userLogic];
+export default [...userLogic, fooFetch];

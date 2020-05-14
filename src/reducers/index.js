@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
 import user from './user'
 import shell from './shell'
+import fooFetch from './fooFetch'
 
 // import Home from '../views/Home'
 // import Login from '../views/Login'
@@ -11,4 +12,4 @@ import shell from './shell'
 //   {path: '*', view: NotFound}
 // ]
 
-export default combineReducers({shell, user})
+export default combineReducers({shell, user, fooFetch})

@@ -15,8 +15,8 @@ export default function Login(props) {
     <UserContext.Consumer>
           {
             user => {
-              console.log(user)
-              if (user.user && user.user.token) {
+              const isLogged = user.user && user.user.token
+              if (isLogged) {
                 return <div>
                   <h4>You're logged</h4>
                   <GoHome />

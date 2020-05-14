@@ -12,6 +12,8 @@ export default function Home(props) {
       Hello home
     </Typography>
 
+    <Button onClick={props.fetchData}>Fetch data</Button>
+
     <Button onClick={props.invalidate}>Invalidate user</Button>
   </Paper>
 }

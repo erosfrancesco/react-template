@@ -15,8 +15,8 @@ export const userActions = {
 }
 
 // Protected actions
-export const protectedActions = {
-    doIt: 'A_PROTECTED_ACTION'
+export const protectedStub = {
+    fetch: 'PROTECTED_FETCH_STUB'
 }
 
 // store configuration

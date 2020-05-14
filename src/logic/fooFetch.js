@@ -1,28 +1,32 @@
 import {createLogic} from 'redux-logic'
-import {userActions, protectedStub} from '../constants'
+import {protectedStub, userActions} from '../constants'
 
-// check the JWT token in the payload of FETCH_REPOS or FETCH_WIDGETS
+// check the JWT token in the payload of FETCH_* actions
 // actions. The token could also just been stored in state.
 // If expired or expiring soon, refresh before continuing
 export default createLogic({
   type: [protectedStub.fetch], // action types or regexes
   validate({ getState, action }, allow, reject) {
-    checkToken(action.jwt, getState())
-      .then(jwt => {
-        allow({
-          ...action,
-          jwt
-        });
-      })
-      .catch(err => {
-        console.error(err);        
-        reject({ type: userActions.loginFailed, payload: err, error: true })
+    const state = getState()
+    const jwt = state.user.user.token
+
+    checkToken(jwt, getState())
+    .then(jwt => {
+      console.log('fetching foo')
+      allow({
+        ...action,
+        jwt
       });
+    })
+    .catch(err => {
+      reject({ type: userActions.invalidate })
+    });
   }
-});
+})
 
 function checkToken(jwt, state) {
-  return true
+  return Promise.resolve(true)  // promise true
+  // return Promise.reject()       // promise false
   // const expires = calcExpires(JWT); // negative if already expired
   // if (expires < 0) { // expired
   //   return api.getJWTToken(state.x); // returns a promise to new JWT
