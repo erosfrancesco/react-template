@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
     }
 
     case userActions.invalidate: {
-      const user = {}
+      const user = {user: {}}
 
       return {
         ...state,

@@ -11,20 +11,14 @@ export default function RoutesProvider(props) {
 
     // const Routes = routesMap.map(route => <AppRoute key={route.path} view={route.view} path={route.path} exact isProtected={route.isProtected} />
     // )
-    const Routes = 
-    <Switch>
+    
+    const Routes = <Switch>
         <AppRoute view={Home} path="/" exact isProtected /> 
         <AppRoute view={Login} path="/login" exact /> 
         <AppRoute view={NotFound} path="*" />
     </Switch>
 
     return <BrowserRouter>
-            { Routes }
+        { Routes }
     </BrowserRouter>    
 }
-
-/*
-    <AppRoute view={Home} path="/" exact isProtected /> 
-    <AppRoute view={Login} path="/login" exact /> 
-    <AppRoute view={NotFound} path="*" />
-*/

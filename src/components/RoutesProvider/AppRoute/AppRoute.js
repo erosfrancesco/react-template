@@ -13,11 +13,12 @@ function AppRoute(props) {
 
     return <UserContext.Consumer>
         {user => {
+            console.log(user)
             if(!user.user) {
                 return null
             }
 
-            if (user.user.token) {
+            if (user.user.token && user.user.token.token) {
                 return <Route path={path} component={RouteView} />
             }
 
