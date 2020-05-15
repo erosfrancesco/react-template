@@ -13,10 +13,9 @@ const sendLogin = createLogic({
         const body = {username, password}
         axios.post(loginUrl, body)
         .then(response => {
-            const {user} = response.data
+            const {username, password, token} = response.data
             
             // save user
-            const {username, password, token} = user
             dispatch(saveUser({username, password, token}))
             done();
         })

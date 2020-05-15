@@ -1,4 +1,4 @@
 import userLogic from './userLogic'
-import fooFetch from './fooFetch'
+import jwt from './jwt'
 
-export default [...userLogic, fooFetch];
+export default [...userLogic, jwt];

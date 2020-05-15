@@ -1,34 +1,50 @@
 import {createLogic} from 'redux-logic'
 import {userActions, protectedStub} from '../constants'
 
-// check the JWT token in the payload of FETCH_REPOS or FETCH_WIDGETS
+// check the JWT token in the payload of FETCH_* actions
 // actions. The token could also just been stored in state.
 // If expired or expiring soon, refresh before continuing
 export default createLogic({
-  type: [protectedStub.fetch], // action types or regexes
+  type: [protectedStub.fetch], // regex
   validate({ getState, action }, allow, reject) {
-    checkToken(action.jwt, getState())
-      .then(jwt => {
-        allow({
-          ...action,
-          jwt
-        });
-      })
-      .catch(err => {
-        console.error(err);        
-        reject({ type: userActions.loginFailed, payload: err, error: true })
-      });
-  }
-});
+    const state = getState()
+    const jwt = state.user.user.token
 
-function checkToken(jwt, state) {
-  return true
-  // const expires = calcExpires(JWT); // negative if already expired
-  // if (expires < 0) { // expired
-  //   return api.getJWTToken(state.x); // returns a promise to new JWT
-  // } else if (expires < THRESHOLD) { // expires soon
-  //   return api.refreshJWTToken(jwt); // return a promise to refreshed JWT
-  // }
-  // // otherwise not expiring soon nothing to do, still valid
-  // return Promise.resolve(jwt); // promise to existing JWT    
+    checkToken(jwt)
+    .then(token => allow({
+      ...action,
+      token
+    }))
+    .catch(err => {
+      console.error(err)
+      reject({ type: userActions.invalidate })
+    });
+  }
+})
+
+function checkToken(jwt) {
+  const THRESHOLD = 30 * 1000
+
+
+  const expires = getTokenExpirationDelta(jwt); // negative if already expired
+  // expired
+  if (expires < 0) {
+    return Promise.reject('Auth token expired')
+  }
+
+  // soon to be expired
+  if (expires < THRESHOLD) {
+    console.log('sending a reauth...')
+    // return 
+  }
+
+  // not expired
+  return Promise.resolve(jwt.token) 
+}
+
+function getTokenExpirationDelta(jwt) {
+  const {expiresAt} = jwt
+  const delta = expiresAt - new Date().getTime()
+  
+  return delta
 }
