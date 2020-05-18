@@ -64,7 +64,8 @@ export default function Shell(props) {
                       bgcolor={theme.palette.primary[500]}>
 
                       <div className={classes.rounded} style={{flex: 'auto'}}>  
-                        <RoutesProvider />
+                      <h1> Hello World </h1>
+                        {/* <RoutesProvider /> */}
                       </div>
                 </Box>
         </Box>
